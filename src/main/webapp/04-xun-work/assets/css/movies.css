@@ -1,0 +1,173 @@
+/*页面背景色*/
+.warp{
+    background-color: black;
+    background-repeat:no-repeat;
+}
+
+/********************** 双层3D立方体 *********************/
+
+/*最外层容器*/
+.wrap{
+    margin: 50px;
+    left: 150px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+
+    /*3D模式展示*/
+    transform-style: preserve-3d;
+
+    /*引入动画：动画名称 展示时间 循环展示*/
+    animation: rotate 150s infinite;
+
+    /*匀速展示*/
+    animation-timing-function: linear;
+}
+
+/**************************** 设置内层立方体组件的属性 ****************************/
+
+
+/* 设置内部组件属性 */
+.wrap span{
+    display: block;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 25px;
+    left: 25px;
+
+    /*透明度*/
+    /*opacity: 0.8;*/
+}
+
+/*内部正方形旋转平移 组装成内部立方体*/
+
+.i-top{
+    transform: rotateX(90deg) translateZ(75px);
+    background-image: url("../img/movies/i6.jpg");
+}
+
+.i-bottom{
+    transform: rotateX(90deg) translateZ(-75px);
+    background-image: url("../img/movies/i2.jpg");
+}
+
+.i-right{
+    transform: rotateY(90deg) translateZ(75px);
+    background-image: url("../img/movies/i1.jpg");
+
+}
+
+.i-left{
+    transform: rotateY(90deg) translateZ(-75px);
+    background-image: url("../img/movies/i5.jpg");
+}
+
+.i-front{
+    transform: translateZ(75px);
+    background-image: url("../img/movies/i3.jpg");
+}
+
+.i-back{
+    transform: translateZ(-75px);
+    background-image: url("../img/movies/i4.jpg");
+}
+
+/*具体动画效果，由关键帧来刻画*/
+@keyframes rotate{
+
+    /*开始*/
+    0%{
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    /*中间*/
+    50%{
+
+        transform: rotateY(360deg) rotateX(-90deg);
+    }
+
+    /*结束*/
+    100%{
+
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+
+}
+
+/*************************** 设置外层立方体属性 ********************/
+
+
+/* 设置外部组件属性 */
+.wrap div{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+
+    /*透明度*/
+    opacity: 1.0;
+
+    /*外部组件打开效果所用的时间*/
+    transition: all 1s;
+
+}
+
+/*外部正方形旋转平移 组装成外部立方体*/
+
+.o-top{
+    transform: rotateX(90deg) translateZ(100px);
+    background-image: url("../img/movies/o2.jpg");
+}
+
+.o-bottom{
+    transform: rotateX(90deg) translateZ(-100px);
+    background-image: url("../img/movies/o5.jpg");
+}
+
+.o-right{
+    transform: rotateY(90deg) translateZ(100px);
+    background-image: url("../img/movies/o4.jpg");
+
+}
+
+.o-left{
+    transform: rotateY(90deg) translateZ(-100px);
+    background-image: url("../img/movies/o3.jpg");
+}
+
+.o-front{
+    transform: translateZ(100px);
+    background-image: url("../img/movies/o6.jpeg");
+}
+
+.o-back{
+    transform: translateZ(-100px);
+    background-image: url("../img/movies/o1.jpg");
+}
+
+
+/*打开效果*/
+.wrap:hover .o-bottom{
+    transform: rotateX(90deg) translateZ(-150px);
+}
+
+.wrap:hover .o-top{
+    transform: rotateX(90deg) translateZ(150px);
+}
+
+.wrap:hover .o-left{
+    transform: rotateY(90deg) translateZ(-150px);
+}
+
+.wrap:hover .o-right{
+    transform: rotateY(90deg) translateZ(150px);
+}
+
+.wrap:hover .o-front{
+    transform: translateZ(150px);
+}
+
+.wrap:hover .o-back{
+    transform: translateZ(-150px);
+}
