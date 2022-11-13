@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="web-front-end-course-project" />
+        <module name="web-front-end-course-project_myfork" />
       </profile>
     </annotationProcessing>
   </component>
